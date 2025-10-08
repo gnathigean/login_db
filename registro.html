@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Novo Assinante</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Crie sua Conta</h1>
+
+      <form id="registerForm" method="POST">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="seu.email@exemplo.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            required
+            minlength="6"
+            placeholder="Mínimo 6 caracteres"
+          />
+        </div>
+
+        <button type="submit" class="btn-login">Registrar e Continuar</button>
+
+        <p class="link-plano">
+          Já tem conta? <a href="login.html">Faça Login</a>
+        </p>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="registro.js"></script>
+  </body>
+</html>

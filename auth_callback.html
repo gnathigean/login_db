@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Processando Confirmação...</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      // Use as mesmas chaves
+      const SUPABASE_URL = "https://dvvfwmsbjmewrlvoqmue.supabase.co";
+      const SUPABASE_ANON_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2dmZ3bXNiam1ld3Jsdm9xbXVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk1MzI2MDYsImV4cCI6MjA3NTEwODYwNn0.cVGSCAg-imHwQN-Iycz8DjOZ810bv3WUlrhEOIPKZrQ";
+      const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+      // Função para pegar o token da URL e finalizar a autenticação
+      async function handleAuthCallback() {
+        // O Supabase tenta resolver a sessão automaticamente após o redirecionamento
+
+        // 1. O Supabase armazena a sessão e o token (se válido)
+        const { data, error } = await supabaseClient.auth.getSession();
+
+        if (error || !data.session) {
+          // Se falhar, exibe a mensagem de erro da URL
+          const params = new URLSearchParams(window.location.hash.substring(1));
+          const description =
+            params.get("error_description") ||
+            "Erro desconhecido ao confirmar.";
+
+          document.getElementById(
+            "status"
+          ).innerText = `Falha na Confirmação: ${description}. Tente novamente.`;
+        } else {
+          // Sucesso: a sessão foi criada
+          document.getElementById("status").innerText =
+            "E-mail confirmado com sucesso! Redirecionando para o login...";
+
+          // Redireciona para o login (ou para o painel se já quiser logar)
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 3000);
+        }
+      }
+
+      handleAuthCallback();
+    </script>
+  </head>
+  <body>
+    <div id="status">Verificando o link de confirmação...</div>
+    <p>Aguarde enquanto processamos seu acesso.</p>
+  </body>
+</html>

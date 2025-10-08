@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Acesso Pago</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Acesso Exclusivo</h1>
+
+      <form id="loginForm" method="POST">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="seu.email@exemplo.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            required
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button type="submit" class="btn-login">Entrar</button>
+
+        <p class="link-plano">
+          Ainda não tem conta?
+          <a href="/planos.html">Veja nossos planos de assinatura</a>
+        </p>
+      </form>
+
+      <button
+        onclick="logout()"
+        id="logoutBtn"
+        style="display: none; margin-top: 15px"
+        class="btn-login"
+      >
+        Sair da Conta Ativa
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>

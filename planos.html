@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escolha seu Plano - Acesso Premium</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="planos.css" />
+  </head>
+  <body>
+    <div class="plans-container">
+      <h1>Escolha o Plano Ideal para Você</h1>
+      <p class="subtitle">Desbloqueie todo o nosso conteúdo exclusivo!</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <h2>Plano Mensal</h2>
+          <p class="price">R$ 29,90<span class="period">/mês</span></p>
+          <ul class="features">
+            <li>Acesso Ilimitado ao Conteúdo</li>
+            <li>Suporte Padrão</li>
+            <li>Renovação Automática</li>
+          </ul>
+          <button class="btn-plan" onclick="iniciarAssinatura('mensal')">
+            Assinar Agora
+          </button>
+        </div>
+
+        <div class="plan-card recommended">
+          <span class="badge">Mais Popular</span>
+          <h2>Plano Anual</h2>
+          <p class="price">R$ 299,00<span class="period">/ano</span></p>
+          <ul class="features">
+            <li>⭐ Todos os benefícios do Mensal</li>
+            <li>Economize 15%</li>
+            <li>Acesso a Recursos Exclusivos (Beta)</li>
+            <li>Suporte Prioritário</li>
+          </ul>
+          <button class="btn-plan" onclick="iniciarAssinatura('anual')">
+            Assinar e Economizar
+          </button>
+        </div>
+      </div>
+
+      <p class="link-login">
+        Já sou assinante. <a href="login.html">Fazer Login</a>
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="planos.js"></script>
+  </body>
+</html>
